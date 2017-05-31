@@ -39,7 +39,7 @@ export default class SearchBar extends React.Component {
           onChange={ (e, newValue) => this.setState({text: newValue}) }          
         />        
         
-        <RaisedButton label="Add card" primary={true} onTouchTap={this.handleClick} />
+        <RaisedButton label="Add card" fullWidth={true} primary={true} onTouchTap={this.handleClick} />
       </div>
     )
   }

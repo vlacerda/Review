@@ -3,12 +3,11 @@ import React from 'react';
 import {List, ListItem} from 'material-ui/List';
 import Subheader from 'material-ui/Subheader';
 import Paper from 'material-ui/Paper';
-import * as actions from '../actions/FlashCard';
 
-//My Components
 import CardInput from '../components/CardInput';
-//Reducers
+import * as actions from '../actions/FlashCard';
 import FlashCardReducer from '../reducers/FlashCard';
+
 import { createStore } from 'redux';
 
 export default class FlashCardsList extends React.Component {
@@ -28,9 +27,7 @@ export default class FlashCardsList extends React.Component {
   }
 
   onTouchTap = (state) => {
-    this.flashCardStore.dispatch(Object.assign({
-      type: actions.ADD_CARD
-    }, state));    
+    this.flashCardStore.dispatch(actions.AddCardAction(state));
   }
 
   render = () => {
