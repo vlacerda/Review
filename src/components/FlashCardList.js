@@ -3,38 +3,15 @@ import React from 'react';
 import {List, ListItem} from 'material-ui/List';
 import Subheader from 'material-ui/Subheader';
 import Paper from 'material-ui/Paper';
-
 import CardInput from '../components/CardInput';
-import * as actions from '../actions/FlashCard';
-import FlashCardReducer from '../reducers/FlashCard';
-
-import { createStore } from 'redux';
 
 export default class FlashCardsList extends React.Component {
 
-  flashCardStore = createStore(FlashCardReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
-
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      flashCards: []
-    }
-
-    this.flashCardStore.subscribe( () => {
-      this.setState({flashCards: this.flashCardStore.getState()});
-    } )
-  }
-
-  onTouchTap = (state) => {
-    this.flashCardStore.dispatch(actions.AddCardAction(state));
-  }
-
-  render = () => {
+  render() {
     return (
       <div>
         <CardInput
-          onTouchTap={this.onTouchTap}
+          onTouchTap={this.props.inputSubmit}
         ></CardInput>
         <Paper
           zDepth={1} style={{
@@ -44,7 +21,7 @@ export default class FlashCardsList extends React.Component {
           }}>
           <List>
             <Subheader>Flash Cards</Subheader>
-            {this.state.flashCards.map((v, ind) => {
+            {this.props.flashCards.items.map((v, ind) => {
               return (<ListItem
                 key={ind}
                 primaryText={v.title}

@@ -3,16 +3,15 @@ import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 
 export default class SearchBar extends React.Component {
-  constructor(props) {
-    super(props);
 
+  constructor(props) {
+    super(props)
     this.state = {
       title: '',
       text: ''
     }
-    
   }
-
+  
   handleClick = () => {
     this.props.onTouchTap.call(null, this.state)
     this.setState({
@@ -20,9 +19,9 @@ export default class SearchBar extends React.Component {
       text: ''
     })
   }
-
+  
   render() {
-    return (      
+    return (
       <div>
         <TextField 
           value={this.state.title}
@@ -36,7 +35,7 @@ export default class SearchBar extends React.Component {
           multiLine={true}
           rows={3}
           value={this.state.text}
-          onChange={ (e, newValue) => this.setState({text: newValue}) }          
+          onChange={ (e, newValue) => this.setState({text: newValue}) }
         />        
         
         <RaisedButton label="Add card" fullWidth={true} primary={true} onTouchTap={this.handleClick} />
