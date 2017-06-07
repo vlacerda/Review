@@ -1,6 +1,7 @@
 import React from 'react';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
+import PropTypes from 'prop-types';
 
 export default class SearchBar extends React.Component {
 
@@ -44,4 +45,8 @@ export default class SearchBar extends React.Component {
       </div>
     )
   }
+}
+
+SearchBar.propTypes = {
+  onTouchTap: PropTypes.func.isRequired
 }
