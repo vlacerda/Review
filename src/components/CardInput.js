@@ -24,12 +24,14 @@ export default class SearchBar extends React.Component {
     return (
       <div>
         <TextField 
+          className='title'
           value={this.state.title}
           onChange={ (e, newValue) => this.setState({title: newValue}) }
           hintText="Title of the flash card" 
         ></TextField>
         <br />
         <TextField
+          className='text'
           hintText="The description of the flash card"
           floatingLabelText="Flash card description"
           multiLine={true}
